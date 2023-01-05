@@ -3,12 +3,12 @@ import React from 'react';
 import HeaderIcon from './HeaderIcon';
 
 import {
+  ChatBubbleBottomCenterIcon,
   BellIcon,
-  ChatIcon,
   ChevronDownIcon,
   HomeIcon,
   UserGroupIcon,
-  ViewGridIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/24/solid';
 import {
   FlagIcon,
@@ -19,7 +19,7 @@ import {
 
 function Header() {
   return (
-    <header>
+    <header className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Left */}
       <div className="flex items-center">
         <Image
@@ -33,21 +33,29 @@ function Header() {
           <input
             type="text"
             placeholder="Search Facebook"
-            className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500"
+            className="hidden md:inline-flex flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink"
           />
         </div>
       </div>
       {/* middle */}
       <div className="flex justify-center flex-grow">
-        <div>
-          <HeaderIcon Icon={HomeIcon} />
-          <HeaderIcon Icon={FlagIcon} />
-          <HeaderIcon Icon={PlayIcon} />
-          <HeaderIcon Icon={ShoppingCartIcon} />
-          <HeaderIcon Icon={UserGroupIcon} />
+        <div className="flex space-x-6 md:space-x-2">
+          <HeaderIcon active Icon={HomeIcon} />
+          <HeaderIcon active={false} Icon={FlagIcon} />
+          <HeaderIcon active={false} Icon={PlayIcon} />
+          <HeaderIcon active={false} Icon={ShoppingCartIcon} />
+          <HeaderIcon active={false} Icon={UserGroupIcon} />
         </div>
       </div>
       {/* right */}
+      <div className="flex items-center sm:space-x-2 justify-end">
+        {/* Picture here */}
+        <p className="whitespace-nowrap text-semibold pr-3">Seth Zea</p>
+        <Squares2X2Icon className="icon" />
+        <ChatBubbleBottomCenterIcon className="icon" />
+        <BellIcon className="icon" />
+        <ChevronDownIcon className="icon" />
+      </div>
     </header>
   );
 }
