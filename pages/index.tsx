@@ -4,8 +4,11 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Login from '../components/Login';
 
-const Home: NextPage = (session) => {
-  if (!session) return <Login />;
+//  I dont want to use {session}: any here. How dop I properly use typescript?
+const Home: NextPage = ({ session }: any) => {
+  if (!session) {
+    return <Login />;
+  }
 
   return (
     <div className="">
