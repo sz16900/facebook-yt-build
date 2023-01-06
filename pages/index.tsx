@@ -1,10 +1,9 @@
 import type { NextPage } from 'next';
-import { useSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Login from '../components/Login';
 
-// this works but whats up with this error?
 const Home: NextPage = (session) => {
   if (!session) return <Login />;
 
@@ -30,8 +29,8 @@ const Home: NextPage = (session) => {
 export default Home;
 
 export async function getServerSideProps(context: any) {
-  // Get the user
-  const { data: session } = useSession(context);
+  // Get User
+  const session = await getSession(context);
 
   return {
     props: {
