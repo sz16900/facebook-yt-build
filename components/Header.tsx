@@ -55,13 +55,16 @@ function Header() {
         <Image
           onClick={() => signOut()}
           className="rounded-full cursor-pointer"
-          src={session?.user?.image}
+          // trust that it will never be null
+          src={session?.user?.image!}
           width="40"
           height="40"
           alt=""
         />
 
-        <p className="whitespace-nowrap text-semibold pr-3">Seth Zea</p>
+        <p className="whitespace-nowrap text-semibold pr-3">
+          {session?.user?.name}
+        </p>
         <Squares2X2Icon className="icon" />
         <ChatBubbleBottomCenterIcon className="icon" />
         <BellIcon className="icon" />

@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
 import { useSession, getSession } from 'next-auth/react';
 import Head from 'next/head';
+import Feed from '../components/Feed';
 import Header from '../components/Header';
 import Login from '../components/Login';
+import Sidebar from '../components/Sidebar';
 
 //  I dont want to use {session}: any here. How dop I properly use typescript?
 const Home: NextPage = ({ session }: any) => {
@@ -11,7 +13,7 @@ const Home: NextPage = ({ session }: any) => {
   }
 
   return (
-    <div className="">
+    <div className="h-screen bg-gray-100 overflow-hidden">
       <Head>
         <title>Facebook Clone</title>
         <link rel="icon" href="/favicon.ico" />
@@ -20,9 +22,9 @@ const Home: NextPage = ({ session }: any) => {
       {/* Header */}
       <Header />
 
-      <main>
-        {/* Sidebar */}
-        {/* Feed */}
+      <main className="flex">
+        <Sidebar />
+        <Feed />
         {/* Widget */}
       </main>
     </div>
