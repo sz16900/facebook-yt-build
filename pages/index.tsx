@@ -5,6 +5,7 @@ import Feed from '../components/Feed';
 import Header from '../components/Header';
 import Login from '../components/Login';
 import Sidebar from '../components/Sidebar';
+import Widgets from '../components/Widgets';
 
 //  I dont want to use {session}: any here. How dop I properly use typescript?
 const Home: NextPage = ({ session }: any) => {
@@ -25,7 +26,7 @@ const Home: NextPage = ({ session }: any) => {
       <main className="flex">
         <Sidebar />
         <Feed />
-        {/* Widget */}
+        <Widgets />
       </main>
     </div>
   );
